@@ -31,12 +31,51 @@
             from { transform: translateY(0px); }
             to { transform: translateY(-10px); }
         }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #yes {
+            background-color: #28a745;
+            color: white;
+        }
+        #no {
+            background-color: #dc3545;
+            color: white;
+        }
+        #no:disabled {
+            background-color: #aaa;
+            cursor: not-allowed;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>💖 Jad, will you be my Valentine? 💖</h1>
         <div class="hearts">💕 💕 💕</div>
+        <div>
+            <button id="yes">Yes</button>
+            <button id="no">No</button>
+        </div>
+        <p id="response"></p>
     </div>
+
+    <script>
+        const yesButton = document.getElementById('yes');
+        const noButton = document.getElementById('no');
+        const responseParagraph = document.getElementById('response');
+
+        yesButton.addEventListener('click', () => {
+            responseParagraph.textContent = "Oki!";
+        });
+
+        noButton.addEventListener('click', () => {
+            noButton.disabled = true;  // Disables the "No" button
+        });
+    </script>
 </body>
 </html>
